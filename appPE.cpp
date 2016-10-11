@@ -11,9 +11,18 @@
 
 #include <iostream>
 
+int ArgParse(char* argv[])
+{
+    std::cout << "Parsing arguments\n";
+    return 1;
+}
 
 int main(int argc, char* argv[])
 {
-	std::cout << "initial draft";
-	return 1;
+    if(ArgParse(argv))
+    {
+        std::cerr << "Error. Not enough arguments\n";
+        return 1;
+    };
+    return 0;
 }
