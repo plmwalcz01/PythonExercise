@@ -18,12 +18,18 @@
 class assesorClass
 {
 public:
+    const int maxFileSize = 100;
+    const int maxWords = 10;
+    const int minWords = 1;
+    const int maxWordSize = 15;
+    const int minWordSize = 1;
     assesorClass();
-    bool assesContent();
-    const int maxFileSize = 50;
+
     void  showInputContent();
+    int assesContent();
     int fileSizeCheck(const std::string filename);
-    bool readFileContent(const std::string filename);
+    int readFileContent(const std::string filename);
+
     std::vector<std::string> mInput;
 };
 
