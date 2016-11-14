@@ -1,0 +1,12 @@
+{
+  "number_of_correct_test_files":15,
+  "incorrect_test_files": {
+    "too_large_test_files": 15,
+    "too_small_test_files": 15,
+    "too_many_words": 15,
+    "too_few_words": 15,
+    "too_long_words": 15,
+    "too_short_words": 15,
+    "no_upper_case": 15
+  }
+}

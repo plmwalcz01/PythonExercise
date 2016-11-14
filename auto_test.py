@@ -1,5 +1,6 @@
 import os, sys
 from subprocess import call
+from test_class import TestClass
 
 def redirect_stdout():
     print("Redirecting stdout")
@@ -25,8 +26,9 @@ def redirect_stdout():
 
 
 if __name__ == '__main__':
-    redirect_stdout()
-    call(["./build_products/appPE", "test",])
-    call(["./build_products/appPE", "test2", ])
-    call(["./build_products/appPE", "test3", ])
-    print("finished")
+    # redirect_stdout()
+    # call(["./build_products/appPE", "test",])
+    # call(["./build_products/appPE", "test2", ])
+    # call(["./build_products/appPE", "test3", ])
+    # print("finished")
+    test = TestClass()
