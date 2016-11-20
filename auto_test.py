@@ -1,5 +1,5 @@
 import os, sys
-from subprocess import call
+
 from test_class import TestClass
 
 def redirect_stdout():
@@ -25,10 +25,22 @@ def redirect_stdout():
     sys.stdout = os.fdopen(newstdout, 'w')
 
 
+
+
 if __name__ == '__main__':
+    import argparse
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument('-s', '--settings', default='config/default_settings.json',
+                            help='option allows to use custom test settings')
+    args = arg_parser.parse_args()
+    print("Running settings", args.settings)
+    test = TestClass(args.settings)
+    redirect_stdout()
+    test.run_tests()
+
     # redirect_stdout()
     # call(["./build_products/appPE", "test",])
     # call(["./build_products/appPE", "test2", ])
     # call(["./build_products/appPE", "test3", ])
     # print("finished")
-    test = TestClass()
+
