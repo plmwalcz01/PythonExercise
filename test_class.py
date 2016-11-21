@@ -16,7 +16,12 @@ class TestClass():
             for test in tests:
                 call(["./build_products/appPE", test])
 
-
     def generate_tests(self):
         print("generating tests...")
-        self.test_gens.append(gen.correct_test_file_gen(self.settings_obj.number_of_correct_test_files, self.settings_obj.test_files_path))
+        for test_name, test_case in self.settings_obj.test_cases.items():
+            self.test_gens.append(
+                 gen.test_file_gen(self.settings_obj.test_files_path, test_name,
+                                   test_case.get("number_of_tests", self.settings_obj.defaults["number_of_tests"]),
+                                   test_case.get("max_number_of_words", self.settings_obj.defaults["max_number_of_words"]),
+                                   test_case.get("max_word_size", self.settings_obj.defaults["max_word_size"]),
+                                   test_case.get("1st_uppercase", self.settings_obj.defaults["1st_uppercase"])))

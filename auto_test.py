@@ -8,24 +8,27 @@ def redirect_stdout():
 
     # Duplicate stdout (file descriptor 1)
     # to a different file descriptor number
+
     newstdout = os.dup(1)
+    newstderr = os.dup(2)
 
     # /dev/null is used just to discard what is being printed
-    raport = os.open('build_products/raport', os.O_WRONLY)
+    raport = os.open('build_products/raport', os.O_WRONLY | os.O_CREAT)
+    raport_err = os.open('build_products/raport_err', os.O_WRONLY | os.O_CREAT)
 
-    # Duplicate the file descriptor for /dev/null
+    # Duplicate the file descriptor for build_products/raport
     # and overwrite the value for stdout (file descriptor 1)
     os.dup2(raport, 1)
+    os.dup2(raport_err, 2)
 
-    # Close devnull after duplication (no longer needed)
+    # Close raport after duplication (no longer needed)
     os.close(raport)
+    os.close(raport_err)
 
     # Use the original stdout to still be able
     # to print to stdout within python
     sys.stdout = os.fdopen(newstdout, 'w')
-
-
-
+    sys.stderr = os.fdopen(newstderr, 'w')
 
 if __name__ == '__main__':
     import argparse

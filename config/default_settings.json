@@ -1,13 +1,14 @@
 {
   "test_files_path": "test_files/",
-  "number_of_correct_test_files":15,
-  "incorrect_test_files": {
-    "too_large_test_files": 15,
-    "too_small_test_files": 15,
-    "too_many_words": 15,
-    "too_few_words": 15,
-    "too_long_words": 15,
-    "too_short_words": 15,
-    "no_upper_case": 15
-  }
+  "test_cases": {
+    "correct_test_files": {},
+    "too_large_test_files": { "number_of_tests" : 10, "max_number_of_words": 100, "max_word_size" : 150},
+    "too_small_test_files": { "number_of_tests" : 5, "max_word_size" : 15},
+    "too_many_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 50, "max_word_size" : 15},
+    "too_few_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 4, "max_word_size" : 15},
+    "too_long_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 10, "max_word_size" : 25},
+    "too_short_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 10, "max_word_size" : 15},
+    "no_upper_case_test_files": {"1st_uppercase": "False"}
+  },
+  "default_test_values": {"number_of_tests" : 100000, "max_number_of_words": 10, "max_word_size" : 15, "1st_uppercase": "True"}
 }

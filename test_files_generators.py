@@ -4,7 +4,7 @@ import string
 
 
 def generate_random_words(size):
-    return ''.join(random.choice(string.ascii_letters) for _ in range(random.randrange(1, size)))
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(random.randrange(1, size)))
 
 
 def create_test_file(words, filename):
@@ -26,13 +26,18 @@ def delete_file(filename):
         print(e)
 
 
-def correct_test_file_gen(number_of_tests, test_files_path):
+def test_file_gen(test_files_path, test_file_type, number_of_tests,
+                  max_number_of_words, max_word_size, uppercase):
     counter = 0
     while counter < number_of_tests:
         words = []
-        for i in range(random.randrange(1, 10)):
-            words.append(generate_random_words(15).title())
-        filename = test_files_path + "correct_test_file" + str(counter)
+        for i in range(random.randrange(1, max_number_of_words)):
+            if uppercase:
+                words.append(generate_random_words(max_word_size).title())
+            else:
+                words.append(generate_random_words(max_word_size))
+
+        filename = test_files_path + test_file_type + str(counter)
         create_test_file(words, filename)
         yield filename
         counter += 1

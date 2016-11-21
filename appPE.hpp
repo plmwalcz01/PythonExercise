@@ -2,8 +2,8 @@
 *                                                       *
 *  Project: PythonExercise                              *
 *  Author: Michał Walczak                               *
-*  Version: "1.1"                                       *
-*  Last modified: 2016.10.20                            *
+*  Version: "1.2"                                       *
+*  Last modified: 2016.11.21                            *
 *  Status: initial draft                                *
 *                                                       *
 ********************************************************/
@@ -20,9 +20,9 @@ class assesorClass
 public:
     const int maxFileSize = 100;
     const int maxWords = 10;
-    const int minWords = 1;
+    const int minWords = 5;
     const int maxWordSize = 15;
-    const int minWordSize = 1;
+    const int minWordSize = 5;
     assesorClass();
 
     void  showInputContent();
