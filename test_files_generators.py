@@ -3,8 +3,8 @@ import os
 import string
 
 
-def generate_random_words(size):
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(random.randrange(1, size)))
+def generate_random_words(min_size, size):
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(random.randrange(min_size, size)))
 
 
 def create_test_file(words, filename):
@@ -15,7 +15,6 @@ def create_test_file(words, filename):
 
     test_file.writelines("%s\n" % word for word in words)
     test_file.close()
-    print("Yielding: ", filename)
 
 
 def delete_file(filename):
@@ -26,16 +25,16 @@ def delete_file(filename):
         print(e)
 
 
-def test_file_gen(test_files_path, test_file_type, number_of_tests,
-                  max_number_of_words, max_word_size, uppercase):
+def test_file_gen(test_files_path, test_file_type, number_of_tests, min_number_of_words,
+                  max_number_of_words, min_word_size, max_word_size, uppercase):
     counter = 0
     while counter < number_of_tests:
         words = []
-        for i in range(random.randrange(1, max_number_of_words)):
+        for i in range(random.randrange(min_number_of_words, max_number_of_words)):
             if uppercase:
-                words.append(generate_random_words(max_word_size).title())
+                words.append(generate_random_words(min_word_size, max_word_size).title())
             else:
-                words.append(generate_random_words(max_word_size))
+                words.append(generate_random_words(min_word_size, max_word_size))
 
         filename = test_files_path + test_file_type + str(counter)
         create_test_file(words, filename)

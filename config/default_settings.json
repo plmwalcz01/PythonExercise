@@ -1,14 +1,15 @@
 {
   "test_files_path": "test_files/",
   "test_cases": {
-    "correct_test_files": {},
-    "too_large_test_files": { "number_of_tests" : 10, "max_number_of_words": 100, "max_word_size" : 150},
-    "too_small_test_files": { "number_of_tests" : 5, "max_word_size" : 15},
-    "too_many_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 50, "max_word_size" : 15},
-    "too_few_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 4, "max_word_size" : 15},
-    "too_long_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 10, "max_word_size" : 25},
-    "too_short_words_test_files": { "number_of_tests" : 0, "max_number_of_words": 10, "max_word_size" : 15},
+    "correct_test_files": {"number_of_tests" : 10},
+    "too_large_test_files": { "number_of_tests" : 1, "min_number_of_words": 50, "max_number_of_words": 60, "max_word_size" : 150},
+    "too_small_test_files": { "number_of_tests" : 5, "min_word_size" : 1, "max_word_size" : 2},
+    "too_many_words_test_files": { "number_of_tests" : 1, "min_number_of_words": 15, "max_number_of_words" : 25},
+    "too_few_words_test_files": { "min_number_of_words": 1, "max_number_of_words": 4},
+    "too_long_words_test_files": { "min_word_size" : 5, "max_word_size" : 25},
+    "too_short_words_test_files": {"min_word_size" : 3, "max_word_size" : 4},
     "no_upper_case_test_files": {"1st_uppercase": "False"}
   },
-  "default_test_values": {"number_of_tests" : 100000, "max_number_of_words": 10, "max_word_size" : 15, "1st_uppercase": "True"}
+  "default_test_values": {"number_of_tests" : 2, "min_number_of_words": 5, "max_number_of_words": 10,
+                          "min_word_size" : 5, "max_word_size" : 15, "1st_uppercase": "True"}
 }

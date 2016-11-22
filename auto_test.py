@@ -1,49 +1,16 @@
-import os, sys
-
 from test_class import TestClass
 
-def redirect_stdout():
-    print("Redirecting stdout")
-    sys.stdout.flush() # <--- important when redirecting to files
-
-    # Duplicate stdout (file descriptor 1)
-    # to a different file descriptor number
-
-    newstdout = os.dup(1)
-    newstderr = os.dup(2)
-
-    # /dev/null is used just to discard what is being printed
-    raport = os.open('build_products/raport', os.O_WRONLY | os.O_CREAT)
-    raport_err = os.open('build_products/raport_err', os.O_WRONLY | os.O_CREAT)
-
-    # Duplicate the file descriptor for build_products/raport
-    # and overwrite the value for stdout (file descriptor 1)
-    os.dup2(raport, 1)
-    os.dup2(raport_err, 2)
-
-    # Close raport after duplication (no longer needed)
-    os.close(raport)
-    os.close(raport_err)
-
-    # Use the original stdout to still be able
-    # to print to stdout within python
-    sys.stdout = os.fdopen(newstdout, 'w')
-    sys.stderr = os.fdopen(newstderr, 'w')
-
+'./build_products/appPE'
 if __name__ == '__main__':
     import argparse
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument('-s', '--settings', default='config/default_settings.json',
                             help='option allows to use custom test settings')
+    arg_parser.add_argument('-v', '--verbose',action="store_true", dest="verbose", default=False, help='option to generate verbose rapport')
+    arg_parser.add_argument('-a', '--app', required=True,
+                            help='path to application to be tested')
     args = arg_parser.parse_args()
     print("Running settings", args.settings)
-    test = TestClass(args.settings)
-    redirect_stdout()
+    test = TestClass(args.settings, args.app, args.verbose)
     test.run_tests()
-
-    # redirect_stdout()
-    # call(["./build_products/appPE", "test",])
-    # call(["./build_products/appPE", "test2", ])
-    # call(["./build_products/appPE", "test3", ])
-    # print("finished")
 
