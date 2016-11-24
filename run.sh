@@ -15,10 +15,10 @@ echo "error log path :" $ERR_LOG
 echo "app file path : " $APP
 echo "raport file path :" $RAPORT
 
-$BIN_RM $ERR_LOG 
+$BIN_RM $ERR_LOG
 /bin/ls $BUILD_PATH
 
-"./$APP $FIRST_ARG 2> $ERR_LOG 1>$RAPORT"
+./$APP $FIRST_ARG 2> $ERR_LOG 1>$RAPORT
 RETURN_VALUE=$?
 echo "$RETURN_VALUE <-- result of running $APP with $FIRST_ARG"
 if [ $RETURN_VALUE -eq 0 ]

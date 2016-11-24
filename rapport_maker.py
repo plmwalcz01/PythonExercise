@@ -22,8 +22,8 @@ class RapportMaker:
 
     def prepare_rapport(self):
         rapport = []
-        bracket = "*" * 70
-        separator_lines = "-" * 60
+        bracket = "*" * 70 #random values that looks good
+        separator_lines = "-" * 60 #random values that looks good
         rapport.append(bracket+"\n")
         rapport.append("\nTested {0} on {1}".format(self.app_name, str(datetime.now().strftime("%Y-%m-%d %H:%M"))))
         rapport.append("\nExecuted {0} test cases.".format(str(self.failed_tests + self.passed_tests)))
