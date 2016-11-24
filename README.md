@@ -32,7 +32,7 @@ $ ./build_products/appPE test
 - "appPE" is the application binary
 - "test" is the filename to be tested
 
-Script description:
+Script Description:  
 auto_test.py is a script that simulates behaviour of automated test that tests C++ (black box application) based on provided documentation.
 auto_test.py is ran with 1 requierd parameter which is application name to by tested and 2 optional parameters -s for settings file name and -v raport verbosity level.
 After running all the test specified in settings file a raport is generated based on verbosity level passed as argument
