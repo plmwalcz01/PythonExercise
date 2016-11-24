@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
         assesorClass assesorObj;
         if(assesorObj.fileSizeCheck(filename) > assesorObj.maxFileSize)
         {
-            std::cerr << "Exceeded max file size" << std::endl;
+            std::cerr << "Error. Exceeded max file size" << std::endl;
             return 1;
         }
         return assesorObj.readFileContent(filename);

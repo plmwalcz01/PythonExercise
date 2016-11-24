@@ -3,8 +3,8 @@
 *                                                       *
 *  Project: PythonExercise                              *
 *  Author: Michał Walczak                               *
-*  Version: "1.1"                                       *
-*  Last modified: 2016.10.20                            *
+*  Version: "1.2"                                       *
+*  Last modified: 2016.11.21                            *
 *  Status: initial draft                                *
 *                                                       *
 ********************************************************/
@@ -73,7 +73,7 @@ int assesorClass::assesContent()
     }
     else if(mInput.size() < minWords)
     {
-        std::cerr << "Error. File contains no words!" << std::endl;
+        std::cerr << "Error. File contains too few words!" << std::endl;
         result = 1;
     }
     else
